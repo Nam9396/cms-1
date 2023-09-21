@@ -8,9 +8,13 @@ import useSWR from 'swr'
 import { mutationDeleteFetcher, queryFetcher } from '../swr/fetchFrame'
 import useSWRMutation from 'swr/mutation'
 import { toast } from 'react-toastify'
+import Modal from '../components/Modal'
+import { useState } from 'react'
 
 const PostListScreen = () => {
   const navigate = useNavigate();
+  const [ alertDisplay, setAlertDisplay ] = useState(false);
+  const [ postSlug, setPostSlug ] = useState('');
   const { data, isLoading, mutate: reFectchPost } = useSWR(`${BASE_URL}/${POST_URL}/all`, queryFetcher);
   const { trigger, isMutating } = useSWRMutation(`${BASE_URL}/${POST_URL}`, mutationDeleteFetcher);
 
@@ -32,6 +36,11 @@ const PostListScreen = () => {
     } catch(err) { 
       toast.error(err?.info || err.error)
     }
+  }
+
+  const alertHandler = (postSlug) => { 
+    setAlertDisplay(true);
+    setPostSlug(postSlug);
   }
 
   return (
@@ -101,7 +110,7 @@ const PostListScreen = () => {
                         <IoOpenOutline />
                       </button>
                       <button className="font-semibold text-indigo-600 hover:text-teal-500"
-                        onClick={() => deletePost(post?.slug)}
+                        onClick={() => alertHandler(post?.slug)}
                       >
                         <AiOutlineDelete />
                       </button>
@@ -115,6 +124,15 @@ const PostListScreen = () => {
       </div>
 
       {(isLoading || isMutating) && <SpinnerPage />}
+      {alertDisplay && <Modal 
+        variant={'success'} 
+        header="Are you sure?" 
+        detail="Continuing will delete this post permanetly."
+        name1={"Cancel"}
+        fn1={() => setAlertDisplay(false)}
+        name2={"Delete"}
+        fn2={() => {deletePost(postSlug); setAlertDisplay(false)}}
+      />}
       
     </div>
   )
