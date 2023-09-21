@@ -18,6 +18,7 @@ const upload = multer({
 
 const PORT = process.env.PORT || 5000;
 const app = express();
+const __dirname = path.resolve();
 connectDB();
 
 app.use(cors())
@@ -37,6 +38,7 @@ app.post('/api/post/upload', upload.single('docx'), async (req, res) => {
     res.status(500).json({ success: false, message: 'Conversion failed' });
   }
 })
+
 
 if (process.env.NODE_ENV === 'production') { 
   app.use(express.static(path.join(__dirname, '/frontend/build')));
