@@ -8,7 +8,7 @@ import { uploadPostMutation } from "../swr/fetchFrame";
 
 const UploadDocx = ({ mdx, setMdx, html }) => {
 
-  const { trigger: uploadDoc, isMutating } = useSWRMutation(`http://localhost:8000/api/post/upload`, uploadPostMutation);
+  const { trigger: uploadDoc, isMutating } = useSWRMutation(`http://localhost:5000/api/post/upload`, uploadPostMutation);
   
   const uploadFileHandler = async (e) => { 
     const formData = new FormData();

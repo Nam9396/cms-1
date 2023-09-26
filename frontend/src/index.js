@@ -12,6 +12,7 @@ import UploadPostScreen from './screens/UploadPostScreen'
 import { ApolloProvider } from '@apollo/client'
 import client from './lib/apolloClient'
 import MediaScreen from './screens/MediaScreen'
+import OneDriveScreen from './screens/OneDriveScreen'
 
 
 const router = createBrowserRouter(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route path='/preview-post' element={<PreviewScreen />} />
       <Route path='/media' element={<MediaScreen />} />
       <Route path='/upload-post' element={<UploadPostScreen />} />
+      <Route path='/onedrive' element={<OneDriveScreen />} />
     </Route>
   )
 )

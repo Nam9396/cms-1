@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@azure/msal-browser": "^3.1.0",
+    "@azure/msal-react": "^2.0.3",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.1",
     "@mdx-js/mdx": "^2.3.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -51,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@microsoft/microsoft-graph-types": "^2.38.0",
     "@tailwindcss/typography": "^0.5.10",
     "tailwindcss": "^3.3.3"
   }

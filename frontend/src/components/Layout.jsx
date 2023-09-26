@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { AiOutlineProfile, AiOutlineFileAdd, AiOutlineImport } from 'react-icons/ai' 
+import { AiOutlineProfile, AiOutlineFileAdd, AiOutlineImport, AiOutlineCloudUpload } from 'react-icons/ai' 
 import { BiLogoWordpress } from 'react-icons/bi'
 import { GoFileMedia } from 'react-icons/go'
 import { Link } from 'react-router-dom'
@@ -19,7 +19,8 @@ const navigation = [
   { name: 'Posts', href: '/', icon: AiOutlineProfile, current: false },
   { name: 'Add Post', href: '/add-post', icon: AiOutlineFileAdd, current: false },
   { name: 'Media', href: '/media', icon: GoFileMedia, current: false },
-  { name: 'Upload', href: '/upload-post', icon: AiOutlineImport, current: false }
+  { name: 'Upload', href: '/upload-post', icon: AiOutlineImport, current: false },
+  { name: 'OneDrive', href: '/onedrive', icon: AiOutlineCloudUpload, current: false }
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },

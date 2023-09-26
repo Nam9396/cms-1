@@ -9,6 +9,7 @@ import customError from "./utils/customError.js";
 import multer from 'multer';
 import mammoth from "mammoth";
 import TurndownService from "turndown";
+import cloudRoute from "./routes/cloudRoute.js";
 
 const storage = multer.memoryStorage();
 const upload = multer({
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 
 app.use('/api/post', postRoute)
+app.use('/api/cloud', cloudRoute)
 app.post('/api/post/upload', upload.single('docx'), async (req, res) => {
   try {
     const { buffer } = req.file;
